@@ -61,6 +61,7 @@ function mousePressed() {
     tileColorG[tileX][tileY] = Math.round( Math.random()*255 );
     tileColorB[tileX][tileY] = Math.round( Math.random()*255 );
     sendLightOrder(tileX + 48, tileY, tileColorR[tileX][tileY], tileColorG[tileX][tileY], tileColorB[tileX][tileY], 0);
+    obniz.wait(300);
     sending = true;
   }
 }
