@@ -25,12 +25,7 @@ obniz.onconnect = async function () {
   obniz.io0.output(false) // for sharing GND.
   obniz.uart0.start({tx: 1, rx: 2, baud:115200});
 }
-/*
-const test = () => {
-  console.log("click");
-  obniz.uart0.send([48, 0, 0, 0, 255, 0]);
-}
-*/
+
 const sendLightOrder = (arduinoID, tileID, R, G, B, lightmode) => {
   obniz.uart0.send([arduinoID, tileID, R, G, B, lightmode]);
 }
@@ -65,7 +60,7 @@ function mousePressed() {
     tileColorR[tileX][tileY] = Math.round( Math.random()*255 );
     tileColorG[tileX][tileY] = Math.round( Math.random()*255 );
     tileColorB[tileX][tileY] = Math.round( Math.random()*255 );
-    sendLightOrder(tileX, tileY, tileColorR[tileX][tileY], tileColorG[tileX][tileY], tileColorB[tileX][tileY], 0);
+    sendLightOrder(tileX + 48, tileY, tileColorR[tileX][tileY], tileColorG[tileX][tileY], tileColorB[tileX][tileY], 0);
     sending = true;
   }
 }
