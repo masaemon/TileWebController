@@ -62,7 +62,10 @@ function mousePressed() {
   const tileY = int((mouseY - 100) / 150);
   console.log(tileX + "," + tileY);
   if(sending === false){
-    sendTileStepped(tileX, tileY);
+    tileColorR[tileX][tileY] = Math.round( Math.random()*255 );
+    tileColorG[tileX][tileY] = Math.round( Math.random()*255 );
+    tileColorB[tileX][tileY] = Math.round( Math.random()*255 );
+    sendLightOrder(tileX, tileY, tileColorR[tileX][tileY], tileColorG[tileX][tileY], tileColorB[tileX][tileY], 0);
     sending = true;
   }
 }
